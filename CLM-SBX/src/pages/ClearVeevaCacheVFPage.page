@@ -1,0 +1,2 @@
+<apex:page action="{!URLFOR($SControl.CLEAN_CACHE_BY_ORG)}">
+</apex:page>

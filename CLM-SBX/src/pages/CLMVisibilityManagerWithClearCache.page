@@ -1,0 +1,33 @@
+<apex:page controller="CLMVisibilityManager">
+    <apex:form id="theForm">
+        <apex:pageBlock title="CLM Visibility Management Screen">
+            <c:MultiselectPicklist leftLabel="Available CLM Presentations"
+                leftOptions="{!allCLMPresentations}"
+                rightLabel="Visible CLM Presentations"
+                rightOptions="{!selectedCLMPrezis}"
+                size="20"
+                width="350px"/>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Update Visibility" action="{!updateVisibility}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    <apex:outputText >{!message}</apex:outputText>        
+        <apex:pageBlock title="Clearing Veeva Cache...Please wait.." rendered="{!CLEAR_CACHE}">
+          	<apex:iframe src="/apex/ClearVeevaCacheVFPage" scrolling="false" id="theIframe"/>
+	     	<script>
+	        	document.getElementById('{!$Component.theForm}').elements['{!$Component.clrcache}'].value = 'false';
+			</script>   			 
+         </apex:pageBlock>
+   		<apex:inputHidden value="{!CLR_CACHE_STR}" id="clrcache"/>         
+    </apex:form>
+</apex:page>
+
+<!-- 
+
+    <apex:inputHidden value="{!account.description}" id="hiddenField"/>
+    <apex:commandButton value="save" action="{!save}"/>
+      <script>
+        document.getElementById('{!$Component.theForm}').elements['{!$Component.hiddenField}'].value = 'this is a description';
+
+
+ -->
