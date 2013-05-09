@@ -114,8 +114,8 @@ public class CLMVisibilityManager {
     		defaultIDs.removeAll(visibleIDs);
     	}
      	List<CLM_Presentation_vod__c> prezisToNOTDownload = [SELECT Id, 
-    															(SELECT Id,Key_Message_vod__c, Key_Message_vod__r.CLM_Rep_Visibility_Count__c FROM Clm_Presentation_Slide_vod__r), 
-    															(SELECT Id,Key_Message_vod__c, Key_Message_vod__r.CLM_Rep_Visibility_Count__c FROM Clm_Presentation_Slide_2_vod__r) 
+    															(SELECT Id,Key_Message_vod__c FROM Clm_Presentation_Slide_vod__r), 
+    															(SELECT Id,Key_Message_vod__c FROM Clm_Presentation_Slide_2_vod__r) 
     														FROM Clm_Presentation_vod__c
     														where Id in: defaultIDs];
     	
